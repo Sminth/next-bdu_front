@@ -6,6 +6,7 @@ services:
       args:
         NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-${NEXT_PUBLIC_API_URL:-http://localhost:3001}}
         NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
+        NEXT_PUBLIC_UNIVERSE: ${NEXT_PUBLIC_UNIVERSE:-bdu}
     container_name: bdu-admin
     environment:
       NODE_ENV: production
@@ -14,6 +15,7 @@ services:
       # URL API consommée par le front (à adapter au domaine/proxy)
       NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-${NEXT_PUBLIC_API_URL:-http://localhost:3001}}
       NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
+      NEXT_PUBLIC_UNIVERSE: ${NEXT_PUBLIC_UNIVERSE:-bdu}
     ports:
       - "3040:3000"
     restart: unless-stopped

@@ -12,7 +12,7 @@ const ENVIRONNEMENTS = {
   API_URL:
     process.env.NEXT_PUBLIC_API_BASE_URL ?? process.env.NEXT_PUBLIC_API_URL,
   /** L'univers ou le contexte de l'application */
-  UNIVERSE: process.env.NEXT_PUBLIC_UNIVERSE,
+  UNIVERSE: process.env.NEXT_PUBLIC_UNIVERSE ?? 'bdu',
   /** L'environnement d'exécution (ex: 'development', 'production'). */
   NODE_ENV: process.env.NEXT_PUBLIC_NODE_ENV,
 };

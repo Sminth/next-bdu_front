@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
-    const token = request.cookies.get('token_bdu')?.value;
+    const universe = process.env.NEXT_PUBLIC_UNIVERSE || 'bdu';
+    const tokenName = `token_${universe}`;
+    const token = request.cookies.get(tokenName)?.value;
     const { pathname } = request.nextUrl;
 
     const isAuthPage =
