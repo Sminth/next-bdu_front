@@ -154,7 +154,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild className="hover:bg-transparent p-0 mb-6 mt-2">
               <a href="/dashboard" className="flex items-center justify-center gap-3">
-                <img src="/logo.svg" alt="BDU-CI Logo" className="h-[66px] w-auto ml-2" />
+                <img src="/logo.png" alt="BDU-CI Logo" className="h-[66px] w-auto ml-2" />
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>

@@ -10,7 +10,7 @@ export default function AuthLayout({
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center md:justify-start mb-8 md:mb-0">
           <a href="#" className="flex items-center gap-2 font-medium">
-            <img src="/logo.svg" alt="BDU-CI Logo" className="h-[70px] md:h-[90px] w-auto relative z-20" />
+            <img src="/logo.png" alt="BDU-CI Logo" className="h-[70px] md:h-[90px] w-auto relative z-20" />
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
