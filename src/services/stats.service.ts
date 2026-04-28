@@ -1,6 +1,10 @@
 import { request } from "@/lib/request";
 
 export interface DashboardStats {
+    filters: {
+        annee: number | null;
+        mois: number | null;
+    };
     summary: {
         totalInvestments: number;
         totalProjects: number;
@@ -9,12 +13,18 @@ export interface DashboardStats {
         enCours: number;
         brouillons: number;
         rejetes: number;
+        termines?: number;
+        nonProgrammes?: number;
         budgetTotal: number;
+        budgetPrevisionnelTotal: number;
+        budgetReelTotal: number;
+        budgetDepenseTotal: number;
         budgetCurrentYear: number;
         coutReelTotal: number;
         montantGenereTotal: number;
         roiMoyen: number;
         currentYear: number;
+        availableYears: number[];
     };
     investmentsByStatus: { statut: string; count: number }[];
     investmentsByYear: {
@@ -32,7 +42,17 @@ export interface DashboardStats {
     recentInvestments: any[];
 }
 
-export const statsService = {
-    getDashboardStats: (): Promise<DashboardStats> => request.get<DashboardStats>("/stats/dashboard"),
+export type DashboardStatsParams = {
+    annee?: number;
+    mois?: number;
 };
 
+export const statsService = {
+    getDashboardStats: (params?: DashboardStatsParams): Promise<DashboardStats> => {
+        const search = new URLSearchParams();
+        if (params?.annee != null) search.set("annee", String(params.annee));
+        if (params?.mois != null) search.set("mois", String(params.mois));
+        const q = search.toString();
+        return request.get<DashboardStats>(`/stats/dashboard${q ? `?${q}` : ""}`);
+    },
+};
