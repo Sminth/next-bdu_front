@@ -6,6 +6,7 @@ import {
   BarChart2,
   Briefcase,
   Building2,
+  Calculator,
   FileText,
   Frame,
   History,
@@ -49,6 +50,12 @@ const NAV_CONFIG = {
       url: "/dashboard/reporting",
       icon: BarChart2,
       permission: "reporting.read",
+    },
+    {
+      title: "Comptabilité",
+      url: "/dashboard/comptabilite",
+      icon: Calculator,
+      permission: "comptabilite.read",
     },
   ],
 
