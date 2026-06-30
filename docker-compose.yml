@@ -4,18 +4,19 @@ services:
       context: .
       dockerfile: Dockerfile
       args:
-        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-${NEXT_PUBLIC_API_URL:-http://localhost:3001}}
-        NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
+        NEXT_PUBLIC_API_BASE_URL: /api
+        NEXT_PUBLIC_API_URL: /api
         NEXT_PUBLIC_UNIVERSE: ${NEXT_PUBLIC_UNIVERSE:-bdu}
     container_name: bdu-admin
     environment:
       NODE_ENV: production
       PORT: 3000
       HOSTNAME: 0.0.0.0
-      # URL API consommée par le front (à adapter au domaine/proxy)
-      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-${NEXT_PUBLIC_API_URL:-http://localhost:3001}}
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:3001}
+      NEXT_PUBLIC_API_BASE_URL: /api
+      NEXT_PUBLIC_API_URL: /api
       NEXT_PUBLIC_UNIVERSE: ${NEXT_PUBLIC_UNIVERSE:-bdu}
+      # host.docker.internal pointe vers la machine hôte (backend tournant en local)
+      INTERNAL_BACKEND_URL: ${INTERNAL_BACKEND_URL:-http://host.docker.internal:3001}
     ports:
       - "3040:3000"
     restart: unless-stopped

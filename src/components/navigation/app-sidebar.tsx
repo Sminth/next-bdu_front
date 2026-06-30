@@ -13,6 +13,7 @@ import {
   PieChart,
   ShieldCheck,
   Tag,
+  TrendingUp,
   Users,
 } from "lucide-react";
 
@@ -56,6 +57,12 @@ const NAV_CONFIG = {
       url: "/dashboard/comptabilite",
       icon: Calculator,
       permission: "comptabilite.read",
+    },
+    {
+      title: "P&L",
+      url: "/dashboard/pnl",
+      icon: TrendingUp,
+      permission: "pnl.read",
     },
   ],
 
